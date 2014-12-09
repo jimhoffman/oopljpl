@@ -83,11 +83,11 @@ assert issubclass(A, A)
 assert issubclass(A, object)
 
 class B (A) :
-    def __init__ (self, i, f) :
+    def __init__ (self, i, f, s) :
         A.__init__(self, i, f)
-        self.x = A(i, f)
+        self.s = s
 
-y = B(2, 3.45)
+y = B(2, 3.45, "abc")
 assert type(y) is B
 assert type(B) is type
 assert issubclass(B, B)

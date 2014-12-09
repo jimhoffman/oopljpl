@@ -16,6 +16,11 @@ def reduce_1 (bf, a, v) :
     return v
 
 def reduce_2 (bf, a, v) :
+    for i in range(len(a)) :
+        v = bf(v, a[i])
+    return v
+
+def reduce_3 (bf, a, v) :
     p = iter(a)
     try :
         while True :
@@ -24,7 +29,7 @@ def reduce_2 (bf, a, v) :
         pass
     return v
 
-def reduce_3 (bf, a, v) :
+def reduce_4 (bf, a, v) :
     for w in a :
         v = bf(v, w)
     return v
@@ -51,6 +56,7 @@ print("Reduce.py")
 test(reduce_1)
 test(reduce_2)
 test(reduce_3)
+test(reduce_4)
 test(reduce)
 
 print("Done.")

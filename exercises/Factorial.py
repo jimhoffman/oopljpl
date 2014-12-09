@@ -22,12 +22,12 @@ def factorial_recursion (n) :
 # linear iterative process
 def factorial_tail_recursion (n) :
     assert n >= 0
-    def f (n, m) :
+    def f (n, v) :
         assert n >= 0
-        assert m >= 1
+        assert v >= 1
         if n < 2 :
-            return m
-        return f(n - 1 , n * m)
+            return v
+        return f(n - 1 , n * v)
     return f(n, 1)
 
 # iterative procedure
