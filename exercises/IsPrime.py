@@ -4,7 +4,8 @@
 # IsPrime.py
 # ----------
 
-from math import sqrt
+from math     import sqrt
+from unittest import main, TestCase
 
 def is_prime (n) :
     assert n > 0
@@ -15,29 +16,32 @@ def is_prime (n) :
             return False
     return True
 
-print("IsPrime.py")
+class MyUnitTests (TestCase) :
+    def test_1 (self) :
+        self.assertFalse(is_prime( 1))
+        self.assertFalse(is_prime( 2))
+        self.assertTrue (is_prime( 3))
+        self.assertFalse(is_prime( 4))
+        self.assertTrue (is_prime( 5))
+        self.assertFalse(is_prime( 6))
+        self.assertTrue (is_prime( 7))
+        self.assertFalse(is_prime( 8))
+        self.assertTrue (is_prime( 9))
+        self.assertFalse(is_prime(10))
+        self.assertTrue (is_prime(11))
 
-assert not is_prime( 1)
-assert not is_prime( 2)
-assert     is_prime( 3)
-assert not is_prime( 4)
-assert     is_prime( 5)
-assert not is_prime( 6)
-assert     is_prime( 7)
-assert not is_prime( 8)
-assert     is_prime( 9)
-assert not is_prime(10)
-assert     is_prime(11)
-
-print("Done.")
+main()
 
 """
-% coverage run --branch IsPrime.py
-IsPrime.py
-Done.
+% coverage3 run --branch IsPrime.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
 
-% coverage report
+OK
+
+% coverage3 report
 Name      Stmts   Miss Branch BrMiss  Cover
 -------------------------------------------
-IsPrime      23      0      6      0   100%
+is_prime     23      0      6      0   100%
 """
